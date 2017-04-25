@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         new AttendanceRequest(this).execute(s1);
 
         // Note:
-        // * Wait 2 seconds to resume the preview.
+        // * Wait 3 seconds to resume the preview.
         // * On older devices continuously stopping and resuming camera preview can result in freezing the app.
         // * I don't know why this is the case but I don't have the time to figure out.
         final Handler handler = new Handler();
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 //dialogInformationOverallAttendance.dismiss();
 
             }
-        }, 2000);
+        }, 3000);
 
     }
 

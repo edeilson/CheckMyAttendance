@@ -3,6 +3,7 @@ package com.edge.checkmyattendance.Dialogs;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import com.edge.checkmyattendance.R;
 import com.edge.checkmyattendance.Student;
 
-public class DialogInformationOverallAttendance  extends Dialog implements
+public class DialogInformationOverallAttendance extends Dialog implements
         android.view.View.OnClickListener {
 
     private Activity activity;
@@ -49,6 +50,19 @@ public class DialogInformationOverallAttendance  extends Dialog implements
         if(student.getStartCourseDate()==null){
             cmdAttendanceDetails.setEnabled(false);
         }
+
+        // Note:
+        // * Wait 3 seconds to resume the preview.
+        // * On older devices continuously stopping and resuming camera preview can result in freezing the app.
+        // * I don't know why this is the case but I don't have the time to figure out.
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            dismiss();
+
+            }
+        }, 3000);
 
     }
 

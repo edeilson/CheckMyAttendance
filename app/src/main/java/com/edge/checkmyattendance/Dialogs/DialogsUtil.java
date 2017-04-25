@@ -9,7 +9,7 @@ import android.content.Context;
 
 public class DialogsUtil{
 
-    ProgressDialog dialog;
+    static ProgressDialog dialog;
 
     public DialogsUtil(){};
 
@@ -17,12 +17,5 @@ public class DialogsUtil{
         dialog = new ProgressDialog(context);
         dialog.setTitle("Please wait");
         dialog.show();
-        //return dialog;
     }
-
-    public void finishDialog() {
-        dialog.dismiss();
-    }
-
-
 }
