@@ -2,11 +2,13 @@ package com.edge.checkmyattendance;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.google.zxing.Result;
 
@@ -41,6 +43,13 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         setContentView(mScannerView);
         mScannerView.setResultHandler(this);
         mScannerView.startCamera(0);// 1 - is the front camera*/
+
+
+        // If the Android version is lower than Jellybean, use this call to hidethe status bar.
+        if (Build.VERSION.SDK_INT < 24) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
     }
 

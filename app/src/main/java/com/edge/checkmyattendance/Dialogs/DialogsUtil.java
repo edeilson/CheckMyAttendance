@@ -18,4 +18,8 @@ public class DialogsUtil{
         dialog.setTitle("Please wait");
         dialog.show();
     }
+
+    public void finishDialog() {
+        dialog.dismiss();
+    }
 }
