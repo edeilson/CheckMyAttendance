@@ -1,7 +1,6 @@
 package com.edge.checkmyattendance;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,15 +21,17 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     //TODO create a container to show the camera and ISE Logo
     private static final int MY_REQUEST_CODE = 0;
     private ZXingScannerView mScannerView = null;
-
     public static String CMALog = "CheckMyAttendance";
-    public Activity getMainActivity = (Activity) MainActivity.this;
+    protected static MainActivity mainActivity;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
-
+        mainActivity = this;
 
         Log.i(CMALog, "Request Camera Permission...");
         requestCameraPermission();
@@ -90,5 +91,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         Log.i(CMALog, "Done");
     }
 
+    public static MainActivity getMainActivity(){
+        return mainActivity;
+    }
 
 }

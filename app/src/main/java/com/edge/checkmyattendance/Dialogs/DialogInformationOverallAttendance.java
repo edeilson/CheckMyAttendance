@@ -2,9 +2,7 @@ package com.edge.checkmyattendance.Dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,18 +18,16 @@ public class DialogInformationOverallAttendance  extends Dialog implements
     private Student student;
     private Button cmdClose, cmdAttendanceDetails;
 
-    public DialogInformationOverallAttendance(@NonNull Context context) {
-        super(context);
-    }
 
-
-   /* public DialogInformationOverallAttendance(Activity activity, String message, Student student) {
+    public DialogInformationOverallAttendance(Activity activity, String message, Student student) {
         super(activity);
         // TODO Auto-generated constructor stub
         this.activity = activity;
         this.message = message;
         this.student = student;
-    }*/
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

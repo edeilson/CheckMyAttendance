@@ -24,12 +24,12 @@ import java.net.URLEncoder;
  * Created by Edeilson Silva on 24/04/2017.
  */
 
-public class AttendanceRequest extends AsyncTask<Student,Void, Void> {
+public class AttendanceRequest extends AsyncTask<Student,Activity, Void> {
 
     private JSONObject jsonObj;
     private String FEEDBACK = null;
     private DialogsUtil pDialog;
-    private Activity activity;
+    private Activity mainActivity;
     private Context context;
     private Student student = null;
 
@@ -43,7 +43,7 @@ public class AttendanceRequest extends AsyncTask<Student,Void, Void> {
         pDialog = new DialogsUtil();
         pDialog.progressDialogs(context);
         //student = new Student();
-        activity = new MainActivity().getMainActivity;
+        mainActivity = MainActivity.getMainActivity();
     }
 
 
@@ -170,7 +170,8 @@ public class AttendanceRequest extends AsyncTask<Student,Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        new DialogInformationOverallAttendance(activity, FEEDBACK, student).show();
+        new DialogInformationOverallAttendance(mainActivity, FEEDBACK, student).show();
+        //new DialogInformationOverallAttendance().show();
         pDialog.finishDialog();
         //MainActivity.cleanInputFields();
         //MainActivity.setFocus();
